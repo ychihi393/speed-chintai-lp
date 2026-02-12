@@ -1,0 +1,395 @@
+:root {
+  --bg-ivory: #f7f4ee;
+  --bg-cream: #f0ebe2;
+  --bg-deep: #0f2740;
+  --card: rgba(255, 255, 255, 0.9);
+  --card-border: rgba(188, 164, 120, 0.34);
+  --text-main: #1d2d3d;
+  --text-sub: #4d5b6a;
+  --accent-gold: #b58a4b;
+  --accent-gold-deep: #8f6730;
+  --accent-line: #06c755;
+  --accent-line-deep: #049a43;
+  --accent-navy: #173d63;
+  --accent-navy-deep: #112d48;
+  --shadow-soft: 0 14px 36px rgba(16, 31, 49, 0.1);
+  --shadow-strong: 0 16px 30px rgba(10, 21, 35, 0.18);
+  --font-display: "Zen Old Mincho", "Hiragino Mincho ProN", serif;
+  --font-body: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  background:
+    radial-gradient(circle at 85% -10%, rgba(181, 138, 75, 0.17), transparent 42%),
+    radial-gradient(circle at -10% 20%, rgba(15, 39, 64, 0.1), transparent 38%),
+    linear-gradient(145deg, var(--bg-ivory) 0%, var(--bg-cream) 52%, #ece6db 100%);
+}
+
+.lp {
+  width: min(1020px, 92%);
+  margin: 54px auto;
+  display: grid;
+  gap: 22px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(4px);
+  padding: 32px;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(181, 138, 75, 0.75) 50%, transparent 100%);
+}
+
+.hero-card {
+  text-align: center;
+}
+
+.badge {
+  margin: 0 auto 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(181, 138, 75, 0.45);
+  background: rgba(255, 250, 239, 0.88);
+  color: #6f4e1f;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* アイコンは背景透過・はっきりした色で表示 */
+.badge-icon,
+.btn-icon,
+.badge-icon svg,
+.btn-icon svg {
+  background: transparent !important;
+  border: none;
+}
+
+.badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+/* TikTokアイコン：バッジ上で常に濃い色にして視認性を確保 */
+.badge-icon-tiktok {
+  color: #0f0f0f;
+}
+
+.badge-icon-tiktok svg {
+  fill: currentColor;
+}
+
+.title-main {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(33px, 5.1vw, 56px);
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: 0.04em;
+  color: #1b2e42;
+  text-wrap: balance;
+}
+
+.title-primary {
+  display: block;
+}
+
+.title-sub {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 2.2vw, 21px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #3b4b5a;
+}
+
+.lead {
+  max-width: 700px;
+  margin: 22px auto 0;
+}
+
+.lead-p {
+  margin: 0 0 0.9em;
+  color: var(--text-sub);
+  line-height: 1.95;
+  font-size: 1.02rem;
+}
+
+.lead-p:last-child {
+  margin-bottom: 0;
+}
+
+.key {
+  color: var(--accent-gold-deep);
+  font-weight: 700;
+}
+
+.actions {
+  margin: 28px auto 0;
+  width: min(430px, 100%);
+  display: grid;
+  gap: 14px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 999px;
+  padding: 15px 22px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: var(--shadow-strong);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: saturate(1.04);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.btn-icon svg {
+  display: block;
+  overflow: visible;
+}
+
+/* LINE・家アイコンはボタンの文字色（白系）を継承＝背景と被らない */
+.btn-icon-line {
+  width: 24px;
+  height: 24px;
+}
+
+.btn-icon-line svg,
+.btn-icon-house svg {
+  fill: currentColor;
+}
+
+.btn-line {
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent-line) 0%, var(--accent-line-deep) 100%);
+}
+
+.btn-app {
+  color: #f8f6f1;
+  background: linear-gradient(135deg, var(--accent-navy) 0%, var(--accent-navy-deep) 100%);
+}
+
+.section-title {
+  margin: 0 0 14px;
+  font-family: var(--font-display);
+  letter-spacing: 0.03em;
+  font-size: clamp(24px, 3.2vw, 34px);
+  font-weight: 700;
+  color: #1b2e42;
+}
+
+.feature-card {
+  text-align: left;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.feature-item {
+  border-radius: 16px;
+  border: 1px solid rgba(181, 138, 75, 0.24);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 245, 237, 0.9) 100%);
+  padding: 16px;
+}
+
+.feature-item h3 {
+  margin: 0 0 8px;
+  font-size: 1.03rem;
+  color: #2d3b4a;
+}
+
+.feature-item p {
+  margin: 0;
+  color: var(--text-sub);
+  line-height: 1.8;
+  font-size: 0.96rem;
+}
+
+.app-section {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 22px;
+  align-items: center;
+}
+
+.icon-wrap {
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.app-icon,
+.icon-fallback {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  border: 1px solid rgba(181, 138, 75, 0.32);
+}
+
+.app-icon {
+  display: block;
+  object-fit: cover;
+  vertical-align: middle;
+  /* レイアウトを事前に確保して読み込み時のガタつきを防止 */
+  min-width: 110px;
+  min-height: 110px;
+}
+
+.icon-fallback {
+  display: none;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--accent-navy);
+  background: linear-gradient(145deg, #fff8e8, #efe2c6);
+}
+
+.app-lead {
+  margin-top: 6px;
+}
+
+.app-p {
+  margin: 0 0 0.65em;
+  color: var(--text-sub);
+  line-height: 1.85;
+}
+
+.app-note {
+  margin-top: 0.8em;
+  color: #5a6876;
+  font-weight: 500;
+}
+
+.reveal {
+  opacity: 0;
+  animation: riseIn 0.8s ease forwards;
+}
+
+.reveal:nth-of-type(2) {
+  animation-delay: 0.12s;
+}
+
+.reveal:nth-of-type(3) {
+  animation-delay: 0.22s;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 860px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .lp {
+    width: 93%;
+    margin: 24px auto 34px;
+    gap: 16px;
+  }
+
+  .card {
+    border-radius: 20px;
+    padding: 22px 18px;
+  }
+
+  .title-main {
+    line-height: 1.34;
+  }
+
+  .title-sub {
+    margin-top: 6px;
+    font-size: clamp(13px, 3.6vw, 17px);
+  }
+
+  .lead-p {
+    font-size: 0.97rem;
+  }
+
+  .actions {
+    margin-top: 22px;
+    gap: 12px;
+  }
+
+  .btn {
+    padding: 14px 18px;
+    font-size: 0.94rem;
+  }
+
+  .app-section {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .section-title {
+    margin-bottom: 12px;
+  }
+
+  .app-note {
+    margin-bottom: 0;
+  }
+}
