@@ -132,16 +132,16 @@ body {
   line-height: 1.35;
 }
 
-/* 動画フレーム: 9:19.2 角丸45px */
+/* 動画フレーム: 縦 9:17.3 角丸控えめ */
 .video-wrap {
   position: relative;
   flex-shrink: 0;
   width: 135px;
-  aspect-ratio: 9 / 19.2;
+  aspect-ratio: 9 / 17.3;
   overflow: hidden;
-  border-radius: 45px;
+  border-radius: 22px;
   box-shadow: 0 8px 28px rgba(30, 64, 175, 0.18);
-  background: #111;
+  background: #000;
 }
 
 .hero-video {
@@ -150,6 +150,7 @@ body {
   object-fit: cover;
   display: block;
   vertical-align: middle;
+  background: #000;
 }
 
 .video-fallback {
@@ -160,8 +161,8 @@ body {
   padding: 12px;
   align-items: center;
   justify-content: center;
-  background: var(--bg);
-  color: var(--text-sub);
+  background: #000;
+  color: rgba(255, 255, 255, 0.85);
   font-size: 10px;
   line-height: 1.5;
   text-align: center;
@@ -191,9 +192,9 @@ body {
 }
 
 .cta-app-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
   box-shadow: 0 4px 14px rgba(232, 86, 127, 0.25);
   animation: iconBounce 2.5s ease-in-out infinite;
 }
@@ -431,8 +432,7 @@ body {
 
   .video-wrap {
     width: 240px;
-    /* 比率維持: 240/135 ≈ 1.78 → 45 * 1.78 ≈ 80 */
-    border-radius: 80px;
+    border-radius: 40px;
   }
 
   .cta-primary-wrap {
@@ -448,9 +448,9 @@ body {
   }
 
   .cta-app-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 16px;
+    width: 88px;
+    height: 88px;
+    border-radius: 20px;
   }
 
   .cta-section {
