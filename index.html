@@ -21,17 +21,16 @@
     <div class="bg-overlay" aria-hidden="true"></div>
 
     <main class="lp">
-      <!-- ヒーロー：メインコピー -->
+      <!-- ヒーロー：メインコピー（サブ削除・表題を大きく） -->
       <section class="hero animate-in" style="--delay: 0s">
         <h1 class="hero-title">物件情報、<span class="hero-accent">超最新</span>。</h1>
-        <p class="hero-sub">ヘヤマッチで最新の物件を</p>
       </section>
 
-      <!-- スマホ動画 + 左右キャッチコピー -->
+      <!-- スマホ動画 + 左右キャッチコピー（2枚目レイアウト：縦並び・スマホに揃えて中央） -->
       <section class="video-section animate-in" style="--delay: 0.1s">
         <div class="video-copy video-copy-left">
           <span class="video-copy-line">新感覚の</span>
-          <span class="video-copy-line">最新物件が</span>
+          <span class="video-copy-line video-copy-line-nowrap">最新物件が</span>
         </div>
         <div class="video-wrap">
           <video
@@ -46,8 +45,8 @@
           <p class="video-fallback" aria-live="polite">動画を読み込めません。<br />assets フォルダに hero-video.mp4 があるか確認してください。</p>
         </div>
         <div class="video-copy video-copy-right">
-          <span class="video-copy-line">部屋探し。</span>
-          <span class="video-copy-line">すぐ見つかる!</span>
+          <span class="video-copy-line video-copy-line-nowrap">部屋探し。</span>
+          <span class="video-copy-line video-copy-line-nowrap">すぐ見つかる!</span>
         </div>
       </section>
 
@@ -69,15 +68,15 @@
       <!-- 3つの特徴カード -->
       <section class="features">
         <div class="feature-card animate-in" style="--delay: 0.25s">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <div class="feature-icon feature-icon-people">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M4 21v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2"/><circle cx="15" cy="7" r="3"/><path d="M20 21v-2a4 4 0 0 0-4-4h-2a4 4 0 0 0-4 4v2"/></svg>
           </div>
-          <h3 class="feature-card-title">16タイプ<br />部屋タイプ診断</h3>
+          <h3 class="feature-card-title">16type<br />心理診断</h3>
           <p class="feature-card-desc">あなたにぴったりの部屋は？<br />性格から選ぶ</p>
         </div>
         <div class="feature-card animate-in" style="--delay: 0.35s">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 2-2 3-2 5h-4c0-2-2-3-2-5a4 4 0 0 1 4-4z"/><path d="M10 17h4"/><path d="M10 20h4"/><path d="M12 11v2"/></svg>
+          <div class="feature-icon feature-icon-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
           </div>
           <h3 class="feature-card-title">AIディープ<br />リサーチ機能</h3>
           <p class="feature-card-desc">物件のリアルな情報が<br />わかる</p>
