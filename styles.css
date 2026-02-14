@@ -4,12 +4,13 @@
   --blue-dark: #1e3a8a;
   --blue-light: #60a5fa;
   --accent: #ef4444;
+  --pink: #e8567f;
+  --pink-deep: #d1446a;
   --bg: #f0f5ff;
   --white: #ffffff;
   --text: #1a1a2e;
   --text-sub: #555566;
   --text-muted: #999aaa;
-  --font-head: "Inter", "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
   --font-body: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
 }
 
@@ -125,20 +126,20 @@ body {
 .video-copy-line {
   display: block;
   font-family: var(--font-body);
-  font-size: 17px;
+  font-size: 22px;
   font-weight: 900;
   color: var(--blue-deep);
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
+/* 動画フレーム: 9:19.2 角丸45px */
 .video-wrap {
   position: relative;
   flex-shrink: 0;
-  width: 150px;
+  width: 135px;
   aspect-ratio: 9 / 19.2;
   overflow: hidden;
-  /* 比率維持: 150/320 ≈ 0.469 → 43 * 0.469 ≈ 20 */
-  border-radius: 20px;
+  border-radius: 45px;
   box-shadow: 0 8px 28px rgba(30, 64, 175, 0.18);
   background: #111;
 }
@@ -175,7 +176,34 @@ body {
   display: flex;
 }
 
-/* ========== CTA ボタン ========== */
+/* ========== CTA プライマリ（ボタン + 横アイコン） ========== */
+.cta-primary-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0 0 20px;
+}
+
+.cta-icon-wrap {
+  flex-shrink: 0;
+}
+
+.cta-app-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(232, 86, 127, 0.25);
+  animation: iconBounce 2.5s ease-in-out infinite;
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-5px) scale(1.05); }
+}
+
+/* ========== CTA ボタン共通 ========== */
 .cta-section {
   width: 100%;
   margin: 0 0 20px;
@@ -187,7 +215,6 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 100%;
   padding: 15px 20px;
   border-radius: 14px;
   font-family: var(--font-body);
@@ -208,39 +235,31 @@ body {
   transform: translateY(0);
 }
 
-/* メインCTA */
+/* メインCTA：ピンク基調 */
 .btn-primary {
-  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+  background: linear-gradient(135deg, var(--pink) 0%, var(--pink-deep) 100%);
   color: var(--white);
   font-size: 16px;
-  padding: 16px 24px;
+  padding: 16px 28px;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 4px 20px rgba(232, 86, 127, 0.35);
   position: relative;
   overflow: hidden;
+  flex: 1;
+  max-width: 320px;
 }
 
 .btn-primary::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%);
+  background: linear-gradient(135deg, transparent 30%, rgba(255, 255, 255, 0.18) 50%, transparent 70%);
   background-size: 200% 100%;
   animation: btnShine 3s ease-in-out infinite;
 }
 
 .btn-primary:hover {
-  box-shadow: 0 6px 28px rgba(37, 99, 235, 0.45);
-}
-
-/* ボタン内アプリアイコン */
-.btn-app-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 7px;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
+  box-shadow: 0 6px 28px rgba(232, 86, 127, 0.45);
 }
 
 @keyframes btnShine {
@@ -248,42 +267,49 @@ body {
   100% { background-position: -200% center; }
 }
 
-/* CTAパルスアニメーション */
 .btn-pulse {
   animation: pulse 2.5s ease-in-out infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35); }
-  50% { box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35), 0 0 0 8px rgba(37, 99, 235, 0.1); }
+  0%, 100% { box-shadow: 0 4px 20px rgba(232, 86, 127, 0.35); }
+  50% { box-shadow: 0 4px 20px rgba(232, 86, 127, 0.35), 0 0 0 8px rgba(232, 86, 127, 0.1); }
 }
 
-/* LINE CTA */
-.btn-secondary {
-  background: var(--white);
-  color: var(--blue-deep);
-  border: 2px solid var(--blue);
-  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.1);
-  gap: 6px;
-}
-
-.btn-secondary:hover {
-  background: var(--blue);
+/* TikTokボタン：TikTok世界観（黒ベース） */
+.btn-tiktok {
+  background: #010101;
   color: var(--white);
-  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+  border: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  width: auto;
+  max-width: 280px;
+  margin: 0 auto;
+  padding: 13px 24px;
+  border-radius: 12px;
+  font-size: 13px;
+  position: relative;
+  overflow: hidden;
 }
 
-.btn-secondary:hover .btn-sns-icon {
-  color: var(--white);
+.btn-tiktok::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #25f4ee, #fe2c55);
 }
 
-/* SNSアイコン共通 */
-.btn-sns-icon {
-  width: 20px;
-  height: 20px;
+.btn-tiktok:hover {
+  box-shadow: 0 4px 20px rgba(254, 44, 85, 0.3);
+}
+
+.btn-tiktok-icon {
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
-  color: var(--blue-deep);
-  transition: color 0.25s ease;
 }
 
 /* ========== 3つの特徴カード ========== */
@@ -400,40 +426,41 @@ body {
   }
 
   .video-copy-line {
-    font-size: 30px;
+    font-size: 36px;
   }
 
   .video-wrap {
-    width: 260px;
-    /* 比率維持: 260/320 ≈ 0.8125 → 43 * 0.8125 ≈ 35 */
-    border-radius: 35px;
+    width: 240px;
+    /* 比率維持: 240/135 ≈ 1.78 → 45 * 1.78 ≈ 80 */
+    border-radius: 80px;
   }
 
-  .cta-section {
-    max-width: 480px;
-    margin: 0 auto 32px;
+  .cta-primary-wrap {
+    gap: 16px;
+    margin-bottom: 32px;
   }
 
   .btn-primary {
-    padding: 18px 28px;
+    padding: 18px 32px;
     font-size: 18px;
     border-radius: 18px;
+    max-width: 380px;
   }
 
-  .btn-app-icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 9px;
+  .cta-app-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
   }
 
-  .btn-secondary {
-    padding: 16px 24px;
-    font-size: 16px;
+  .cta-section {
+    margin-bottom: 32px;
   }
 
-  .btn-sns-icon {
-    width: 22px;
-    height: 22px;
+  .btn-tiktok {
+    max-width: 320px;
+    padding: 15px 28px;
+    font-size: 15px;
   }
 
   .features {
